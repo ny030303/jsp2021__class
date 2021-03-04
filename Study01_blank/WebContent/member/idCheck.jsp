@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="dao" class="my.member.MemberDAO"/>
+
 <%
+	// MemberDAO dao = MemberDAO.getInstance(); 
 	request.setCharacterEncoding("UTF-8");
 	String id = request.getParameter("id");
 	boolean result = dao.idAvailableChk(id);
+	// <%@ page import="my.member.MemberDAO" %> 
 %>
 <!DOCTYPE html>
 <html>

@@ -12,7 +12,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Refresh" content="3; url=/JSP04/member/loginForm_sub.jsp" charset="UTF-8">
+<meta http-equiv="Refresh" content="3; url=loginForm_sub.jsp" charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>

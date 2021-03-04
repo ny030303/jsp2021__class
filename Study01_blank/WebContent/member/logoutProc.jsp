@@ -10,15 +10,18 @@
 </head>
 <body>
 	<%
+		boolean rst = false;
 		String id = (String) session.getAttribute("loginId");
-		String pass = request.getParameter("pass");
-		boolean rst = dao.deleteMember(id, pass);
+	if(id != null) {
+		session.removeAttribute("loginId");
+		rst= true;
+	}
 	%>
 	<%
 		if (rst) {
-			out.println("<h2>회원 탈퇴가 정상 처리되었습니다.</h2>");
+			out.println("<h2>로그아웃 정상 처리되었습니다.</h2>");
 		} else {
-			out.println("<h2>회원 탈퇴 처리중 오류가 발생하였습니다.</h2>");
+			out.println("<h2>로그아웃중 오류가 발생하였습니다.</h2>");
 		}
 	%>
 	3초 뒤 로그인 페이지로 이동합니다.

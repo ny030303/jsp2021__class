@@ -11,7 +11,7 @@ import java.util.List;
 public class MemberDAO {
 	
 	private static MemberDAO instance = new MemberDAO();
-	private MemberDAO() {};
+	public MemberDAO() {};
 	public static MemberDAO getInstance() {
 		return instance;
 	}
@@ -20,7 +20,7 @@ public class MemberDAO {
 		Connection conn = null;
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:59161:xe","system","oracle");
+			conn = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","hr","hr");
 		} catch (ClassNotFoundException e) {
 			System.out.println("driver not found");
 		} catch (SQLException e) {
@@ -62,6 +62,7 @@ public class MemberDAO {
 	}
 	
 	private MemberDTO makeMember(ResultSet rs) throws SQLException {
+		rs.next();
 		MemberDTO dto = new MemberDTO();
 		dto.setName(rs.getString("name"));
 		dto.setId(rs.getString("id"));
@@ -200,7 +201,7 @@ public class MemberDAO {
 		try {
 
 			conn = getConnection();
-			String sql = "update member set pass=? birth=? gender=? job=? address=? where id =?";
+			String sql = "update member set pass=?, birth=?, gender=?, job=?, address=? where id =?";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, dto.getPass());
 			ps.setInt(2, dto.getBirth());
@@ -232,7 +233,7 @@ public class MemberDAO {
 		try {
 
 			conn = getConnection();
-			String sql = "DELETE FROM member WHERE id=? pass=?";
+			String sql = "DELETE FROM member WHERE id=? and pass=?";
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, id);
 			ps.setString(2, pass);

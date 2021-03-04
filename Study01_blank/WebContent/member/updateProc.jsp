@@ -3,8 +3,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	request.setCharacterEncoding("UTF-8");
+System.out.println(request.getParameter("pass"));	
+request.setCharacterEncoding("UTF-8");
 %>
+<jsp:useBean id="dto" class="my.member.MemberDTO"/>
 <jsp:useBean id="dao" class="my.member.MemberDAO"/>
 <jsp:setProperty property="*" name="dto"/>
 <!DOCTYPE html>
@@ -16,21 +18,11 @@
 <body>
 <%
 	Boolean rst = false;
-	if(request.getParameter("pass").equals(request.getParameter("repass"))) {
+	
+	if(request.getParameter("pass").equals(request.getParameter("rePass"))) {
 		// 비번과 확인비번 같을 때만
-		String id = request.getParameter("id");
-		MemberDTO dto = new MemberDTO();
+		String id = (String)session.getAttribute("loginId");
 		dto.setId(id);
-		dto.setName(request.getParameter("name"));
-		dto.setId(request.getParameter("id"));
-		dto.setPass(request.getParameter("pass"));
-		dto.setBirth(Integer.parseInt(request.getParameter("birth")));
-		dto.setGender(request.getParameter("gender"));
-		dto.setJob(request.getParameter("job"));
-		dto.setAddress(request.getParameter("address"));
-		//java.sql.Date d = java.sql.Date.valueOf(request.getParameter("regDate"));
-		//dto.setRegDate(d);
-
 		rst = dao.updateMember(dto);
 	}
 	
