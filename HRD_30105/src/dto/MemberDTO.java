@@ -11,6 +11,7 @@ public class MemberDTO {
 	private String grade;
 	private String city;
 	
+	
 	public int getCustno() {
 		return custno;
 	}

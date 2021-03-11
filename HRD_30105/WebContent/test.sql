@@ -12,13 +12,12 @@ create table member_tbl_02 (
 
 select * from MEMBER_TBL_02;
 
-insert into MEMBER_TBL_02 values (100001, '김행복', '010-1111-2222', 'SK', '20151202', 'A', 01);
-insert into MEMBER_TBL_02 values (100002, '이축복', '010-1111-3333', 'SK', '20151206', 'B', 01);
-insert into MEMBER_TBL_02 values (100003, '장믿음', '010-1111-4444', 'LG', '20151001', 'B', 30);
-insert into MEMBER_TBL_02 values (100004, '최사랑', '010-1111-5555', 'KT', '20151113', 'A', 30);
-insert into MEMBER_TBL_02 values (100005, '잔평화', '010-1111-6666', 'SK', '20151225', 'B', 60);
-insert into MEMBER_TBL_02 values (100006, '차공단', '010-1111-7777', 'LG', '20151211', 'C', 60);
-
+insert into MEMBER_TBL_02 values (100001, '김행복', '010-1111-2222', 'SK', '20151202', 'A', '01');
+insert into MEMBER_TBL_02 values (100002, '이축복', '010-1111-3333', 'SK', '20151206', 'B', '01');
+insert into MEMBER_TBL_02 values (100003, '장믿음', '010-1111-4444', 'LG', '20151001', 'B', '30');
+insert into MEMBER_TBL_02 values (100004, '최사랑', '010-1111-5555', 'KT', '20151113', 'A', '30');
+insert into MEMBER_TBL_02 values (100005, '잔평화', '010-1111-6666', 'SK', '20151225', 'B', '60');
+insert into MEMBER_TBL_02 values (100006, '차공단', '010-1111-7777', 'LG', '20151211', 'C', '60');
 
 drop table money_tbl_02;
 create table money_tbl_02 (
@@ -44,3 +43,13 @@ insert into money_tbl_02 values (100004, 20160009, 600, 1,600, 'A006', '20160104
 insert into money_tbl_02 values (100004, 20160010, 3000, 1,3000, 'A007', '20160106');
 
 SELECT max(custno) as custno from MEMBER_TBL_02;
+
+
+select a.custno, a.custname, a.grade, sum(b.price) as price
+from member_tbl_02 a, money_tbl_02 b
+where a.custno=b.custno
+group by a.custno, a.custname, a.grade
+order by price desc;
+
+
+UPDATE member_tbl_02 SET custname=?,phone=?,address=?,joindate=?,grade=?,city=? WHERE custno=?;

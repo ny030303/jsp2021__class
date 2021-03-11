@@ -17,7 +17,10 @@
 	header  ul { list-style: none; display: flex; background-color: #777;}
 	header  ul > li { margin: 5px 15px; color: #fff; }
 	footer {position: fixed; bottom: 0; width: 100%; padding: 15px 0;}
-	table {width: 700px; margin: 0 auto;}
+	#signup table {width: 700px; margin: 0 auto;}
+	#mlist table {width: 1200px; margin: 0 auto; text-align: center;}
+	#moneyList table {width: 700px; margin: 0 auto; text-align: center;}
+	#update table {width: 700px; margin: 0 auto;}
 </style>
 </head>
 <body>
@@ -26,8 +29,8 @@
 	<nav>
 		<ul>
 			<li><a href="signup.jsp">회원등록</a></li>
-			<li><a href="#">회원목록조회/수정</a></li>
-			<li><a href="#">회원매출조회</a></li>
+			<li><a href="memberList.jsp">회원목록조회/수정</a></li>
+			<li><a href="moneyList.jsp">회원매출조회</a></li>
 			<li><a href="index.jsp">홈으로</a></li>
 		</ul>
 	</nav>
