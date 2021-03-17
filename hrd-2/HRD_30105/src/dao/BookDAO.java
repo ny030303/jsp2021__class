@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 
+import dto.BookRentDTO;
 import dto.MemDTO;
 import dto.MemRentDTO;
 
@@ -127,22 +128,42 @@ public class BookDAO {
 	
 	public ArrayList<MemRentDTO> getAllMemberRent() {
 		ArrayList<MemRentDTO> arr = new ArrayList<MemRentDTO>();
-		String sql = "SELECT a.custno, a.custname, count(a.custno) countnum FROM mem_tbl_book a, rent_tbl_book b WHERE a.custno=b.custno group by a.custno, a.custname;";
+		String sql = "SELECT a.custno, a.custname, count(a.custno) countnum FROM mem_tbl_book a, rent_tbl_book b WHERE a.custno=b.custno group by a.custno, a.custname order by a.custno";
 		try {
 			Connection con = getConn();
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			ResultSet rs = pstmt.executeQuery();
 			
-			if(rs.next()) {
+			while(rs.next()) {
 				MemRentDTO mr = new MemRentDTO();
 				mr.setCustno(rs.getInt("custno"));
 				mr.setCustname(rs.getString("custname"));
 				mr.setCountNum(rs.getInt("countnum"));
+				arr.add(mr);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+		return arr;
+	}
+	
+	public ArrayList<BookRentDTO> getAllBookRent() {
+		ArrayList<BookRentDTO> arr = new ArrayList<BookRentDTO>();
+		String sql = "select bookno, count(bookno) countNum from rent_tbl_book group by bookno";
+		try {
+			Connection con = getConn();
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				BookRentDTO br = new BookRentDTO();
+				br.setBookno(rs.getInt("bookno"));
+				br.setCountNum(rs.getInt("countNum"));
+				arr.add(br);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		return arr;
 	}
 }

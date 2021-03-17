@@ -1,3 +1,4 @@
+<%@page import="dto.BookRentDTO"%>
 <%@page import="dto.MemRentDTO"%>
 <%@page import="dto.MemDTO"%>
 <%@page import="java.util.ArrayList"%>
@@ -6,7 +7,9 @@
 <jsp:useBean id="dao" class="dao.BookDAO"/>
 <jsp:include page="header.jsp"/>
 
-<% ArrayList<MemRentDTO> arr = dao.getAllMemberRent(); %>
+<% ArrayList<MemRentDTO> mArr = dao.getAllMemberRent();
+ArrayList<BookRentDTO> bArr= dao.getAllBookRent();
+%>
 <div class="rentlist">
 	<h2>회원별 대여현황</h2>
 	<table>
@@ -18,7 +21,7 @@
 			</tr>
 		</thead>
 		<tbody>
-		<%for(MemRentDTO mr : arr) {%>
+		<%for(MemRentDTO mr : mArr) {%>
 			<tr>
 				<td><%=mr.getCustno() %></td>
 				<td><%=mr.getCustname() %></td>
@@ -37,10 +40,12 @@
 			</tr>
 		</thead>
 		<tbody>
+			<%for(BookRentDTO br : bArr) {%>
 			<tr>
-				<td>도서번호</td>
-				<td>대여횟수</td>
+				<td><%=br.getBookno() %></td>
+				<td><%=br.getCountNum() %></td>
 			</tr>
+		<%} %>
 		</tbody>
 	</table>
 </div>

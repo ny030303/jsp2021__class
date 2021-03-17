@@ -24,6 +24,8 @@ create table rent_tbl_book (
 	constraint rent_tbl_book primary key(custno, bookno)
 )
 
+select bookno, count(bookno) countNum from rent_tbl_book group by bookno;
+
 INSERT INTO rent_tbl_book values(10001, 1234, '2019-02-15', '2019-02-15');
 INSERT INTO rent_tbl_book values(10001, 1122, '2019-02-15', '2019-02-16');
 INSERT INTO rent_tbl_book values(10002, 1234, '2019-03-15', '2019-02-15');
