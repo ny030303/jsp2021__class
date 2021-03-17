@@ -1,0 +1,80 @@
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+header h2 {
+	text-align: center;	
+}
+
+header ul {
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	background-color: #333;
+}
+
+header ul li {
+	background-color: #333;
+	padding: 10px;
+}
+
+header ul li a {
+	color: #fff;
+}
+
+footer {
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	width: 100%;
+	justify-content: space-around;
+	border-top: 1px solid #999;
+	padding: 20px 0;
+}
+
+.main {
+	width: 1400px;
+	margin: 0 auto;
+}
+
+.memlist, .rentlist {
+	width: 1400px;
+	padding: 10px;
+	margin: 10px auto 50px auto;
+	border: 1px solid #333;
+	border-radius: 5px;
+}
+
+.memlist table, .rentlist table {
+	border-spacing: 0;
+	width: 100%;
+	text-align: center;
+}
+.memlist table thead, .rentlist table thead {
+	font-weight: bold;
+}
+.memlist table td, .rentlist table td {
+	border-bottom: 1px solid #aaa;
+	padding: 10px
+}
+
+.memlist a {
+	color: #fff;
+}
+
+button {
+	padding: 5px 10px;
+	background-color: #333;
+	color: #fff;
+	border: 0;
+}
