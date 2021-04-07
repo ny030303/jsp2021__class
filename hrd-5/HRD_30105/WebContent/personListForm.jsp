@@ -2,6 +2,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<% request.setCharacterEncoding("UTF-8"); %>
 <jsp:useBean id="dao" class="dao.HrdDAO"/>
 <%
 	ArrayList<PersonDTO> deptArr = dao.getAllPerson();
@@ -28,13 +29,14 @@
 			String id = request.getParameter("id");
 			if(id.equals("")) { %> <script>alert("사원 번호가 비었습니다.")</script> <% }
 			else {
-				
+				pageContext.forward("personList.jsp");
 			}
 		} else {
 			String dept = request.getParameter("dept");
 			if(dept.equals("")) { %> <script>alert("부서명이 비었습니다.")</script> <% }
 			else {
-				
+				System.out.println(dept);
+				pageContext.forward("personList.jsp");
 			}
 		}
 	}
