@@ -12,4 +12,4 @@
 * 백신 사이트 파일: https://github.com/ny030303/jsp2021__class/tree/master/hrd-6/HRD_30105
 
 ### 수행평가 파일
-* 홈쇼핑 사이트 파일: 
+* 홈쇼핑 사이트 파일: https://github.com/ny030303/jsp2021__class/tree/master/exam_files/shopmall/HRD_30105
