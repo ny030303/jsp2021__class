@@ -16,7 +16,9 @@
 
 ### 수행평가 파일
 * 홈쇼핑 사이트 파일: https://github.com/ny030303/jsp2021__class/tree/master/exam_files/shopmall/HRD_30105
-* 패턴 예시 파일: https://github.com/ny030303/jsp2021__class/tree/master/exam_files/pattern_files
+* 패턴 
+    * 예시 파일: https://github.com/ny030303/jsp2021__class/tree/master/exam_files/pattern_files/Pattern
+    * 시험 본 파일: https://github.com/ny030303/jsp2021__class/tree/master/exam_files/pattern_files/Pattern_exam_file
 
 ### Spring 수업 파일
 * 2021-0518: 
