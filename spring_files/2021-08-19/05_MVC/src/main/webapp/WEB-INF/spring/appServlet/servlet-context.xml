@@ -24,6 +24,10 @@
 	<beans:bean id="login" class="com.yydh.controller.user.LoginController"></beans:bean>
 	<beans:bean id="getBoardList" class="com.yydh.controller.board.GetBoardListController"></beans:bean>
 	<beans:bean id="getBoard" class="com.yydh.controller.board.GetBoardController"></beans:bean>
+	<beans:bean id="logout" class="com.yydh.controller.user.LogoutController"></beans:bean>
+	<beans:bean id="insertBoard" class="com.yydh.controller.board.InsertBoardController"></beans:bean>
+	<beans:bean id="updateBoard" class="com.yydh.controller.board.UpdateBoardController"></beans:bean>
+	<beans:bean id="deleteBoard" class="com.yydh.controller.board.DeleteBoardController"></beans:bean>
 	
 	<beans:bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
 		<beans:property name="mappings">
@@ -31,6 +35,10 @@
 				<beans:prop key="/login.do">login</beans:prop>
 				<beans:prop key="/getBoardList.do">getBoardList</beans:prop>
 				<beans:prop key="/getBoard.do">getBoard</beans:prop>
+				<beans:prop key="/logout.do">logout</beans:prop>
+				<beans:prop key="/insertBoard.do">insertBoard</beans:prop>
+				<beans:prop key="/updateBoard.do">updateBoard</beans:prop>
+				<beans:prop key="/deleteBoard.do">deleteBoard</beans:prop>
 			</beans:props>
 		</beans:property>
 	</beans:bean>

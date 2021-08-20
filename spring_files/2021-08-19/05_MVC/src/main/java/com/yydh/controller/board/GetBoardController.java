@@ -24,6 +24,7 @@ public class GetBoardController implements Controller {
 		BoardDAO boardDAO = new BoardDAO();
 		BoardVO board = boardDAO.getBoard(intSeq);
 		
+//		System.out.println(board.toString());
 		// 세션에 데이터 전달
 //		HttpSession session = request.getSession();
 //		session.setAttribute("board", board);
@@ -34,7 +35,8 @@ public class GetBoardController implements Controller {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("board", board);
 		mav.setViewName("getBoard");
-		return null;
+		
+		return mav;
 	}
 
 }
